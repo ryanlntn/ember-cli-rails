@@ -146,7 +146,7 @@ module EmberCLI
 
     def prepare
       @prepared ||= begin
-        check_addon!
+        # check_addon!
         check_ember_cli_version!
         reset_build_error!
         symlink_to_assets_root
