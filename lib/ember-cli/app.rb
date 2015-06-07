@@ -146,7 +146,7 @@ module EmberCLI
 
     def prepare
       @prepared ||= begin
-        # check_addon!
+        check_addon!
         check_ember_cli_version!
         reset_build_error!
         symlink_to_assets_root
@@ -221,6 +221,8 @@ module EmberCLI
     end
 
     def addon_present?
+      warn addon_package_json_file_path.to_s
+      warn dev_dependencies["ember-cli-rails-addon"].to_s
       dev_dependencies["ember-cli-rails-addon"] == ADDON_VERSION &&
         addon_package_json_file_path.exist?
     end
